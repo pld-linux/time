@@ -9,7 +9,7 @@ diff -Nru time-1.7/time.texi time-1.7.new/time.texi
 +@format
 +@dircategory Miscellaneous:
 +@direntry
-+* time: (time)				GNU time Utility
++* time: (time).				GNU time Utility
 +@end direntry
 +@end format
 +@end ifinfo

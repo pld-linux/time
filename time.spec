@@ -45,7 +45,7 @@ yararlý olur.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr
 make 
 

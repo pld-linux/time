@@ -5,13 +5,15 @@ Summary(pl):	Narzêdzie do pomiaru czasu GNU
 Summary(tr):	GNU zamanlama aracý
 Name:		time
 Version:	1.7
-Release:	13
+Release:	14
 License:	GPL
-Group:		Utilities/System
-Group(pl):	Narzêdzia/System
+Group:		Applications/System
+Group(de):	Applikationen/System
+Group(pl):	Aplikacje/System
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
-Patch0:		time-info.patch
-Patch1:		time-man.patch
+Patch0:		%{name}-info.patch
+Patch1:		%{name}-man.patch
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,7 +48,8 @@ yararlý olur.
 %patch1 -p1
 
 %build
-autoconf && %configure
+autoconf
+%configure
 
 %{__make} 
 
@@ -55,18 +58,14 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
-%{__make} \
-    prefix=$RPM_BUILD_ROOT%{_prefix} \
-    infodir=$RPM_BUILD_ROOT%{_infodir} \
-    bindir=$RPM_BUILD_ROOT%{_bindir} \
-    install 
+%{__make} install \
+	prefix=$RPM_BUILD_ROOT%{_prefix} \
+	infodir=$RPM_BUILD_ROOT%{_infodir} \
+	bindir=$RPM_BUILD_ROOT%{_bindir}
 
 install time.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-strip $RPM_BUILD_ROOT%{_bindir}/*
-
-gzip -9nf $RPM_BUILD_ROOT%{_infodir}/time.info \
-	NEWS README $RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf NEWS README
 
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1

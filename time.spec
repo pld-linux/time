@@ -46,7 +46,7 @@ yararlý olur.
 %build
 autoconf
 CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS="-s" \
-./configure %{_target} \
+./configure %{_target_platform} \
 	--prefix=%{_prefix}
 make 
 

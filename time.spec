@@ -5,14 +5,14 @@ Summary(pl): 	Narzêdzie do pomiaru czasu GNU
 Summary(tr): 	GNU zamanlama aracý
 Name: 	     	time
 Version:     	1.7
-Release:     	9
+Release:     	10
 Copyright:   	GPL
 Group: 	     	Utilities/System
 Group(pl):	Narzêdzia/System
-Source:      	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source:      	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:      	time-info.patch
 Prereq:      	/sbin/install-info
-BuildRoot:	/tmp/%{name}-%{version}-root
+Buildroot:   	/tmp/%{name}-%{version}-root
 
 %description
 The 'time' utility is used as a sort of 'stopwatch' to time the execution
@@ -46,12 +46,12 @@ yararlý olur.
 %build
 CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS="-s" \
 ./configure %{_target} \
-	--prefix=/usr
+	--prefix=%{_prefix}
 make 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install prefix=$RPM_BUILD_ROOT/usr
+make install prefix=$RPM_BUILD_ROOT%{_prefix}
 
 gzip -9nf $RPM_BUILD_ROOT%{_infodir}/time.info \
 	NEWS README
@@ -74,6 +74,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/time.info*
 
 %changelog
+* Mon May 31 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.7-10]
+- more rpm macros.
+
 * Thu Apr 22 1999 Artur Frysiak <wiget@pld.org.pl>
   [1.7-9]
 - gzipped docs

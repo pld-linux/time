@@ -5,14 +5,16 @@ Summary(pl):	Narzêdzie do pomiaru czasu GNU
 Summary(tr):	GNU zamanlama aracý
 Name:		time
 Version:	1.7
-Release:	15
+Release:	16
 License:	GPL
 Group:		Applications/System
-Source0:	ftp://ftp.gnu.org/pub/gnu/time/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/time/%{name}-%{version}.tar.gz
 # Source0-md5:	e38d2b8b34b1ca259cf7b053caac32b3
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch
+Patch2:		%{name}-alpha.patch
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,22 +48,22 @@ yararlý olur.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+%{__aclocal}
 %{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 %{__make} install \
-	prefix=$RPM_BUILD_ROOT%{_prefix} \
-	infodir=$RPM_BUILD_ROOT%{_infodir} \
-	bindir=$RPM_BUILD_ROOT%{_bindir}
+	DESTDIR=$RPM_BUILD_ROOT
 
 install time.1 $RPM_BUILD_ROOT%{_mandir}/man1
 

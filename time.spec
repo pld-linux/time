@@ -5,7 +5,7 @@ Summary(pl): 	Narzêdzie do pomiaru czasu GNU
 Summary(tr): 	GNU zamanlama aracý
 Name: 	     	time
 Version:     	1.7
-Release:     	11
+Release:     	12
 Copyright:   	GPL
 Group: 	     	Utilities/System
 Group(pl):	Narzêdzia/System
@@ -71,7 +71,7 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/time.info \
 %post
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
-%preun
+%postun
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean

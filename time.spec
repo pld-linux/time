@@ -1,5 +1,5 @@
 Summary:	GNU time Utility
-Summary(de):	GNU-Time-Utility 
+Summary(de):	GNU-Time-Utility
 Summary(fr):	Utilitaire time de GNU
 Summary(pl):	Narzêdzie do pomiaru czasu GNU
 Summary(tr):	GNU zamanlama aracý
@@ -50,7 +50,7 @@ yararlý olur.
 autoconf
 %configure
 
-%{__make} 
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT

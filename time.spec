@@ -5,10 +5,11 @@ Summary(pl): Narzêdzie do pomiaru czasu GNU
 Summary(tr): GNU zamanlama aracý
 Name: 	     time
 Version:     1.7
-Release:     7
+Release:     8
 Copyright:   GPL
 Group: 	     Utilities/System
 Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Patch0:      time-info.patch
 Prereq:      /sbin/install-info
 Buildroot:   /tmp/%{name}-%{version}-root
 
@@ -39,30 +40,26 @@ yararlý olur.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS=-s \
+CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS="-s" \
 ./configure \
 	--prefix=/usr
 make 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/{bin,info}
-
-install time $RPM_BUILD_ROOT/usr/bin
-install time.info $RPM_BUILD_ROOT/usr/info
+make install prefix=$RPM_BUILD_ROOT/usr
 
 gzip -9nf $RPM_BUILD_ROOT/usr/info/time.info
 
 %post
-/sbin/install-info /usr/info/time.info.gz /usr/info/dir \
---entry \
-"* time: (time).                                 GNU time Utility"
+/sbin/install-info /usr/info/time.info.gz /etc/info-dir
 
 %preun
 if [ "$1" = 0 ]; then
-    /sbin/install-info --delete /usr/info/time.info.gz /usr/info/dir
+	/sbin/install-info --delete /usr/info/time.info.gz /etc/info-dir
 fi
 
 %clean
@@ -75,6 +72,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(644, root, root) /usr/info/time.info*
 
 %changelog
+* Mon Dec 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [1.7-8]
+- standarized {un}registering info pages (added time-info.patch),
+- added useing "make install" in %install,
+- added gzipping man pages.
+
 * Mon Dec 14 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.7-7]
 - added "Prereq: /sbin/install-info",

@@ -12,6 +12,7 @@ Group(pl):	Narzêdzia/System
 Source:      	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:      	time-info.patch
 Patch1:      	time-man.patch
+Prereq:		/usr/sbin/fix-info-dir
 Buildroot:   	/tmp/%{name}-%{version}-root
 
 %description
@@ -68,12 +69,10 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/time.info \
 	NEWS README $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %post
-/sbin/install-info %{_infodir}/time.info.gz /etc/info-dir
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %preun
-if [ "$1" = 0 ]; then
-	/sbin/install-info --delete %{_infodir}/time.info.gz /etc/info-dir
-fi
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT

@@ -44,6 +44,7 @@ yararlý olur.
 %patch0 -p1
 
 %build
+autoconf
 CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS="-s" \
 ./configure %{_target} \
 	--prefix=%{_prefix}

@@ -8,7 +8,7 @@ Version:	1.7
 Release:	15
 License:	GPL
 Group:		Applications/System
-Source0:	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch
 BuildRequires:	autoconf
@@ -64,14 +64,14 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 install time.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)

@@ -47,14 +47,14 @@ yararlý olur.
 %build
 autoconf && %configure
 
-make 
+%{__make} 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
-make \
+%{__make} \
     prefix=$RPM_BUILD_ROOT%{_prefix} \
     infodir=$RPM_BUILD_ROOT%{_infodir} \
     bindir=$RPM_BUILD_ROOT%{_bindir} \

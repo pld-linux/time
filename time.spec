@@ -13,7 +13,7 @@ Source:      	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:      	time-info.patch
 Patch1:      	time-man.patch
 Prereq:		/usr/sbin/fix-info-dir
-Buildroot:   	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The 'time' utility is used as a sort of 'stopwatch' to time the execution

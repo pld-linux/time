@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {NEWS,README}.gz
 %attr(755,root,root) /usr/bin/time
-%attr(644,root,root) /usr/info/time.info*
+/usr/info/time.info*
 
 %changelog
 * Thu Apr 22 1999 Artur Frysiak <wiget@pld.org.pl>

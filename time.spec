@@ -12,7 +12,7 @@ Group(pl):	Narzêdzia/System
 Source:      	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:      	time-info.patch
 Prereq:      	/sbin/install-info
-Buildroot:   	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 The 'time' utility is used as a sort of 'stopwatch' to time the execution

@@ -64,8 +64,6 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 install time.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-gzip -9nf NEWS README
-
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
@@ -77,9 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {NEWS,README}.gz
-
+%doc NEWS README
 %attr(755,root,root) %{_bindir}/time
-
 %{_infodir}/time.info*
 %{_mandir}/man1/*

@@ -1,34 +1,35 @@
-Summary:     	GNU time Utility
-Summary(de): 	GNU-Time-Utility 
-Summary(fr): 	Utilitaire time de GNU
-Summary(pl): 	Narzêdzie do pomiaru czasu GNU
-Summary(tr): 	GNU zamanlama aracý
-Name: 	     	time
-Version:     	1.7
-Release:     	12
-Copyright:   	GPL
-Group: 	     	Utilities/System
+Summary:	GNU time Utility
+Summary(de):	GNU-Time-Utility 
+Summary(fr):	Utilitaire time de GNU
+Summary(pl):	Narzêdzie do pomiaru czasu GNU
+Summary(tr):	GNU zamanlama aracý
+Name:		time
+Version:	1.7
+Release:	13
+License:	GPL
+Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source:      	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
-Patch0:      	time-info.patch
-Patch1:      	time-man.patch
+Source0:	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
+Patch0:		time-info.patch
+Patch1:		time-man.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The 'time' utility is used as a sort of 'stopwatch' to time the execution
-of a specified command. It can aid in the optimization of programs for
-maximum speed, as well as a number of other uses.
+The 'time' utility is used as a sort of 'stopwatch' to time the
+execution of a specified command. It can aid in the optimization of
+programs for maximum speed, as well as a number of other uses.
 
 %description -l de
-Das TIME-Utility wird als eine Art Stoppuhr zum Messen der Ausführung eines
-bestimmten Befehls benutzt. Es dient in erster Linie der Optimierung von
-Programmen für maximale Geschwindigkeit, hat aber daneben eine Vielzahl
-anderer Anwendungen. 
+Das TIME-Utility wird als eine Art Stoppuhr zum Messen der Ausführung
+eines bestimmten Befehls benutzt. Es dient in erster Linie der
+Optimierung von Programmen für maximale Geschwindigkeit, hat aber
+daneben eine Vielzahl anderer Anwendungen.
 
 %description -l fr
-L'utilitaire « time » sert de chronomètre pour mesurer le temps d'exécution
-d'une commande donnée. Il peut aider à l'optimisation de programmes pour
-obtenir une vitesse maximale et a beaucoup d'autres uilisations.
+L'utilitaire « time » sert de chronomètre pour mesurer le temps
+d'exécution d'une commande donnée. Il peut aider à l'optimisation de
+programmes pour obtenir une vitesse maximale et a beaucoup d'autres
+uilisations.
 
 %description -l pl
 Program time umo¿liwia zmierzenie czasu wykonania badanego programu.

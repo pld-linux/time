@@ -86,29 +86,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %{_infodir}/time.info*
 %{_mandir}/man1/*
-
-%changelog
-* Mon May 31 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7-10]
-- more rpm macros.
-
-* Thu Apr 22 1999 Artur Frysiak <wiget@pld.org.pl>
-  [1.7-9]
-- gzipped docs
-- compiled on rpm 3
-
-* Mon Dec 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7-8]
-- standarized {un}registering info pages (added time-info.patch),
-- added useing "make install" in %install,
-- added gzipping man pages.
-
-* Mon Dec 14 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.7-7]
-- added "Prereq: /sbin/install-info",
-- standarized {un}registering info pages.
-
-* Sat Oct 10 1998 Marcin Korzonek <mkorz@shadow.eu.org>
-- added pl translation,
-- allow building from non root account,
-- build against GNU libc-2.1.

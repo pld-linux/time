@@ -1,17 +1,18 @@
-Summary:     GNU time Utility
-Summary(de): GNU-Time-Utility 
-Summary(fr): Utilitaire time de GNU
-Summary(pl): Narzêdzie do pomiaru czasu GNU
-Summary(tr): GNU zamanlama aracý
-Name: 	     time
-Version:     1.7
-Release:     8
-Copyright:   GPL
-Group: 	     Utilities/System
-Source:      ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:      time-info.patch
-Prereq:      /sbin/install-info
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:     	GNU time Utility
+Summary(de): 	GNU-Time-Utility 
+Summary(fr): 	Utilitaire time de GNU
+Summary(pl): 	Narzêdzie do pomiaru czasu GNU
+Summary(tr): 	GNU zamanlama aracý
+Name: 	     	time
+Version:     	1.7
+Release:     	9
+Copyright:   	GPL
+Group: 	     	Utilities/System
+Group(pl):	Narzêdzia/System
+Source:      	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Patch0:      	time-info.patch
+Prereq:      	/sbin/install-info
+Buildroot:   	/tmp/%{name}-%{version}-root
 
 %description
 The 'time' utility is used as a sort of 'stopwatch' to time the execution
@@ -52,7 +53,8 @@ make
 rm -rf $RPM_BUILD_ROOT
 make install prefix=$RPM_BUILD_ROOT/usr
 
-gzip -9nf $RPM_BUILD_ROOT/usr/info/time.info
+gzip -9nf $RPM_BUILD_ROOT/usr/info/time.info \
+	NEWS README
 
 %post
 /sbin/install-info /usr/info/time.info.gz /etc/info-dir
@@ -66,12 +68,17 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%doc NEWS README
-%attr(755, root, root) /usr/bin/time
-%attr(644, root, root) /usr/info/time.info*
+%defattr(644,root,root,755)
+%doc {NEWS,README}.gz
+%attr(755,root,root) /usr/bin/time
+%attr(644,root,root) /usr/info/time.info*
 
 %changelog
+* Thu Apr 22 1999 Artur Frysiak <wiget@pld.org.pl>
+  [1.7-9]
+- gzipped docs
+- compiled on rpm 3
+
 * Mon Dec 27 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.7-8]
 - standarized {un}registering info pages (added time-info.patch),

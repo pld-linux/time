@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzie do pomiaru czasu GNU
 Summary(tr):	GNU zamanlama aracý
 Name:		time
 Version:	1.7
-Release:	14
+Release:	15
 License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
@@ -14,6 +14,7 @@ Source0:	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch
 BuildRequires:	autoconf
+BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

@@ -53,15 +53,15 @@ make
 rm -rf $RPM_BUILD_ROOT
 make install prefix=$RPM_BUILD_ROOT/usr
 
-gzip -9nf $RPM_BUILD_ROOT/usr/info/time.info \
+gzip -9nf $RPM_BUILD_ROOT%{_infodir}/time.info \
 	NEWS README
 
 %post
-/sbin/install-info /usr/info/time.info.gz /etc/info-dir
+/sbin/install-info %{_infodir}/time.info.gz /etc/info-dir
 
 %preun
 if [ "$1" = 0 ]; then
-	/sbin/install-info --delete /usr/info/time.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/time.info.gz /etc/info-dir
 fi
 
 %clean
@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {NEWS,README}.gz
 %attr(755,root,root) /usr/bin/time
-/usr/info/time.info*
+%{_infodir}/time.info*
 
 %changelog
 * Thu Apr 22 1999 Artur Frysiak <wiget@pld.org.pl>

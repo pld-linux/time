@@ -5,13 +5,13 @@ Summary(pl): 	Narzêdzie do pomiaru czasu GNU
 Summary(tr): 	GNU zamanlama aracý
 Name: 	     	time
 Version:     	1.7
-Release:     	10
+Release:     	11
 Copyright:   	GPL
 Group: 	     	Utilities/System
 Group(pl):	Narzêdzia/System
 Source:      	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:      	time-info.patch
-Prereq:      	/sbin/install-info
+Patch1:      	time-man.patch
 Buildroot:   	/tmp/%{name}-%{version}-root
 
 %description
@@ -40,22 +40,32 @@ kullanýlýr. Genellikle programlarýn hýz açýsýndan iyileþtirilmesinde
 yararlý olur.
 
 %prep
-%setup -q
+%setup  -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-autoconf
-CFLAGS="$RPM_OPT_FLAGS -w" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=%{_prefix}
+autoconf && %configure
+
 make 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install prefix=$RPM_BUILD_ROOT%{_prefix}
+
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
+
+make \
+    prefix=$RPM_BUILD_ROOT%{_prefix} \
+    infodir=$RPM_BUILD_ROOT%{_infodir} \
+    bindir=$RPM_BUILD_ROOT%{_bindir} \
+    install 
+
+install time.1 $RPM_BUILD_ROOT%{_mandir}/man1
+
+strip $RPM_BUILD_ROOT%{_bindir}/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_infodir}/time.info \
-	NEWS README
+	NEWS README $RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %post
 /sbin/install-info %{_infodir}/time.info.gz /etc/info-dir
@@ -71,8 +81,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {NEWS,README}.gz
+
 %attr(755,root,root) %{_bindir}/time
+
 %{_infodir}/time.info*
+%{_mandir}/man1/*
 
 %changelog
 * Mon May 31 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
@@ -97,16 +110,5 @@ rm -rf $RPM_BUILD_ROOT
 
 * Sat Oct 10 1998 Marcin Korzonek <mkorz@shadow.eu.org>
 - added pl translation,
-- allow building from non root account.
-
-* Mon Apr 27 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Mon Oct 27 1997 Cristian Gafton <gafton@redhat.com>
-- fixed info handling
-
-* Thu Oct 23 1997 Cristian Gafton <gafton@redhat.com>
-- updated the spec file; added info file handling
-
-* Mon Jun 02 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+- allow building from non root account,
+- build against GNU libc-2.1.

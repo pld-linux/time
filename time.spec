@@ -8,8 +8,6 @@ Version:	1.7
 Release:	15
 License:	GPL
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/time/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch

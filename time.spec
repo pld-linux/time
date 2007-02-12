@@ -1,8 +1,8 @@
 Summary:	GNU time Utility
-Summary(de.UTF-8):   GNU-Time-Utility
-Summary(fr.UTF-8):   Utilitaire time de GNU
-Summary(pl.UTF-8):   Narzędzie do pomiaru czasu GNU
-Summary(tr.UTF-8):   GNU zamanlama aracı
+Summary(de.UTF-8):	GNU-Time-Utility
+Summary(fr.UTF-8):	Utilitaire time de GNU
+Summary(pl.UTF-8):	Narzędzie do pomiaru czasu GNU
+Summary(tr.UTF-8):	GNU zamanlama aracı
 Name:		time
 Version:	1.7
 Release:	17

@@ -1,8 +1,8 @@
 Summary:	GNU time Utility
-Summary(de):	GNU-Time-Utility
-Summary(fr):	Utilitaire time de GNU
-Summary(pl):	Narzêdzie do pomiaru czasu GNU
-Summary(tr):	GNU zamanlama aracý
+Summary(de.UTF-8):   GNU-Time-Utility
+Summary(fr.UTF-8):   Utilitaire time de GNU
+Summary(pl.UTF-8):   NarzÄ™dzie do pomiaru czasu GNU
+Summary(tr.UTF-8):   GNU zamanlama aracÄ±
 Name:		time
 Version:	1.7
 Release:	17
@@ -23,26 +23,26 @@ The 'time' utility is used as a sort of 'stopwatch' to time the
 execution of a specified command. It can aid in the optimization of
 programs for maximum speed, as well as a number of other uses.
 
-%description -l de
-Das TIME-Utility wird als eine Art Stoppuhr zum Messen der Ausführung
+%description -l de.UTF-8
+Das TIME-Utility wird als eine Art Stoppuhr zum Messen der AusfÃ¼hrung
 eines bestimmten Befehls benutzt. Es dient in erster Linie der
-Optimierung von Programmen für maximale Geschwindigkeit, hat aber
+Optimierung von Programmen fÃ¼r maximale Geschwindigkeit, hat aber
 daneben eine Vielzahl anderer Anwendungen.
 
-%description -l fr
-L'utilitaire « time » sert de chronomètre pour mesurer le temps
-d'exécution d'une commande donnée. Il peut aider à l'optimisation de
+%description -l fr.UTF-8
+L'utilitaire Â« time Â» sert de chronomÃ¨tre pour mesurer le temps
+d'exÃ©cution d'une commande donnÃ©e. Il peut aider Ã  l'optimisation de
 programmes pour obtenir une vitesse maximale et a beaucoup d'autres
 uilisations.
 
-%description -l pl
-Program time umo¿liwia zmierzenie czasu wykonania badanego programu.
-Jest pomocne np. przy optymalizowaniu algorytmów pod k±tem szybko¶ci.
+%description -l pl.UTF-8
+Program time umoÅ¼liwia zmierzenie czasu wykonania badanego programu.
+Jest pomocne np. przy optymalizowaniu algorytmÃ³w pod kÄ…tem szybkoÅ›ci.
 
-%description -l tr
-time, bir uygulamanýn çalýþma zamanýnýn ölçülmesi için kronometre gibi
-kullanýlýr. Genellikle programlarýn hýz açýsýndan iyileþtirilmesinde
-yararlý olur.
+%description -l tr.UTF-8
+time, bir uygulamanÄ±n Ã§alÄ±ÅŸma zamanÄ±nÄ±n Ã¶lÃ§Ã¼lmesi iÃ§in kronometre gibi
+kullanÄ±lÄ±r. Genellikle programlarÄ±n hÄ±z aÃ§Ä±sÄ±ndan iyileÅŸtirilmesinde
+yararlÄ± olur.
 
 %prep
 %setup  -q

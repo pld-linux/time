@@ -8,7 +8,7 @@ Version:	1.7
 Release:	18
 License:	GPL
 Group:		Applications/System
-Source0:	ftp://ftp.gnu.org/gnu/time/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/time/%{name}-%{version}.tar.gz
 # Source0-md5:	e38d2b8b34b1ca259cf7b053caac32b3
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch

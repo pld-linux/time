@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	Narzędzie do pomiaru czasu GNU
 Summary(tr.UTF-8):	GNU zamanlama aracı
 Name:		time
 Version:	1.7
-Release:	25
+Release:	26
 License:	GPL
 Group:		Applications/System
 Source0:	http://ftp.gnu.org/gnu/time/%{name}-%{version}.tar.gz

@@ -4,18 +4,17 @@ Summary(fr.UTF-8):	Utilitaire time de GNU
 Summary(pl.UTF-8):	Narzędzie GNU do pomiaru czasu
 Summary(tr.UTF-8):	GNU zamanlama aracı
 Name:		time
-Version:	1.7
-Release:	28
-License:	GPL v2+
+Version:	1.8
+Release:	1
+License:	GPL v3+
 Group:		Applications/System
 Source0:	http://ftp.gnu.org/gnu/time/%{name}-%{version}.tar.gz
-# Source0-md5:	e38d2b8b34b1ca259cf7b053caac32b3
+# Source0-md5:	4e00dcb8c3ab11c7cf5a0d698828ac96
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch
-Patch2:		%{name}-alpha.patch
 URL:		http://www.gnu.org/software/time/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.69
+BuildRequires:	automake >= 1:1.11.1
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,11 +48,11 @@ yararlı olur.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 
@@ -66,7 +65,7 @@ install -d $RPM_BUILD_ROOT%{_mandir}/man1
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install time.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -p time.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT

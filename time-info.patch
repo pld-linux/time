@@ -1,21 +1,14 @@
-diff -Nru time-1.7/time.texi time-1.7.new/time.texi
---- time-1.7/time.texi	Wed Jun 12 19:40:29 1996
-+++ time-1.7.new/time.texi	Tue Jan  5 07:25:54 1999
-@@ -64,7 +64,17 @@
- by the Foundation.
- @end titlepage
+--- time-1.8/doc/time.texi.orig	2017-12-10 19:14:42.636694277 +0100
++++ time-1.8/doc/time.texi	2017-12-10 19:15:38.993360305 +0100
+@@ -26,9 +26,9 @@
+ @end copying
  
-+@ifinfo
-+@format
-+@dircategory Miscellaneous:
-+@direntry
-+* time: (time).				GNU time Utility
-+@end direntry
-+@end format
-+@end ifinfo
-+
- @node Top, , (dir), (dir)
-+@top GNU time
  
- @ifinfo
- This file documents the the GNU @code{time} command for running programs
+-@dircategory Basics
++@dircategory Shell utilities:
+ @direntry
+-* Time: (time).                  time
++* Time: (time).				time
+ @end direntry
+ 
+ 

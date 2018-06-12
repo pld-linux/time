@@ -4,12 +4,12 @@ Summary(fr.UTF-8):	Utilitaire time de GNU
 Summary(pl.UTF-8):	Narzędzie GNU do pomiaru czasu
 Summary(tr.UTF-8):	GNU zamanlama aracı
 Name:		time
-Version:	1.8
+Version:	1.9
 Release:	1
 License:	GPL v3+
 Group:		Applications/System
 Source0:	http://ftp.gnu.org/gnu/time/%{name}-%{version}.tar.gz
-# Source0-md5:	4e00dcb8c3ab11c7cf5a0d698828ac96
+# Source0-md5:	d2356e0fe1c0b85285d83c6b2ad51b5f
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-man.patch
 URL:		http://www.gnu.org/software/time/
